@@ -11,7 +11,11 @@ class Calculator{
       //this.document.getElementsByClassName("current-operand")="0";
     }
     delete(){
+      
       this.currentOperand = this.currentOperand.toString().slice(0, -1)
+      if(this.currentOperand === ""){
+        this.currentOperand='0'
+      }
     }
     appendNumber(number){
       if (number === '.' && this.currentOperand.includes('.')) return
@@ -78,6 +82,7 @@ class Calculator{
           `${this.getDisplayNumber(this.previousOperand)} ${this.operation}`
       } else {
         this.previousOperandTextElement.innerText = ''
+        //this.currentOperandTextElement.innerText = '0'
       }
     }
   }
